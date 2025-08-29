@@ -1,9 +1,5 @@
 # Trendspill
-A worldwide blog network.
-# Rebuild the blog starter files after reset, then re-zip.
-
-import os, json, textwrap, zipfile, datetime
-
+A worldwide blogging network.
 base = "/mnt/data/blog-starter"
 assets = os.path.join(base, "assets")
 posts_dir = os.path.join(base, "posts")
@@ -11,9 +7,7 @@ os.makedirs(assets, exist_ok=True)
 os.makedirs(posts_dir, exist_ok=True)
 
 now = datetime.date.today().strftime("%B %d, %Y")
-
 # Minimal essential files for regeneration
-
 # index.html
 index_html = f"""<!doctype html>
 <html lang="en">
@@ -31,7 +25,6 @@ index_html = f"""<!doctype html>
 """
 with open(os.path.join(base, "index.html"), "w") as f:
     f.write(index_html)
-
 # about.html
 with open(os.path.join(base, "about.html"), "w") as f:
     f.write("<h1>About</h1><p>This is your about page.</p>")
@@ -39,7 +32,6 @@ with open(os.path.join(base, "about.html"), "w") as f:
 # contact.html
 with open(os.path.join(base, "contact.html"), "w") as f:
     f.write("<h1>Contact</h1><p>Contact form coming soon.</p>")
-
 # post.html
 with open(os.path.join(base, "post.html"), "w") as f:
     f.write("<h1>Post Page</h1><p>Post content will load here.</p>")
@@ -48,9 +40,9 @@ with open(os.path.join(base, "post.html"), "w") as f:
 posts_index = [
     {
         "slug": "welcome-post",
-        "title": "Welcome to Your Blog",
+        "title": "Trendspill",
         "excerpt": "A quick hello post.",
-        "date": "2025-08-01",
+        "date": "2025-08-29",
         "read": 2,
         "category": "Intro"
     }
@@ -59,13 +51,11 @@ with open(os.path.join(posts_dir, "posts.json"), "w") as f:
     json.dump(posts_index, f, indent=2)
 
 # sample post file
-welcome_post = {
-  "title": "Welcome to Your Blog",
-  "date": "2025-08-01",
+welcome_post = {"title": "Trendspill",
+  "date": "2025-08-29",
   "read": 2,
-  "category": "Intro",
-  "html": "<p>This is your first post!</p>"
-}
+  "category": "Motivation",
+  "html": "<p>.Hello everyone! Welcome to my blog. This is my very first post. I’m excited to share tips, stories, and inspiration with you. Stay tuned for more updates! !</p>"}
 with open(os.path.join(posts_dir, "welcome-post.json"), "w") as f:
     json.dump(welcome_post, f, indent=2)
 
